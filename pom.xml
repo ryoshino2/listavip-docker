@@ -5,18 +5,19 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.com.emmanuelneri</groupId>
+    <groupId>br.com.springboot.docker.new</groupId>
     <artifactId>spring-boot-docker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
         <spring-boot.version>2.0.2.RELEASE</spring-boot.version>
         <postgres.version>42.2.2</postgres.version>
 
         <docker.version>1.4.2</docker.version>
-        <docker.repository>emmanuelneri</docker.repository>
     </properties>
 
     <dependencies>
@@ -31,9 +32,35 @@
             <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgres.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.alura.enviadorEmail</groupId>
+            <artifactId>enviadorEmail</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>br.com.alura.enviadorEmail</groupId>
+            <artifactId>enviadorEmail</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -55,7 +82,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>${docker.version}</version>
                 <configuration>
-                    <repository>${docker.repository}/${project.artifactId}-app</repository>
+                    <repository>${docker.version}/${project.artifactId}-app</repository>
                 </configuration>
             </plugin>
         </plugins>
